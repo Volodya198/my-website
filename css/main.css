@@ -1,0 +1,63 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@font-face{
+  font-family: 'font-g';
+  src: url(/fonts/raleway-regular.woff2);
+}
+body, html{
+  height: 100%;
+  width: 100vw;
+  background-color: #000;
+  color: white;
+  font-size: 22px;
+  font-family: 'font-g', serif;
+  overflow: hidden;
+}
+.all-items{
+  height: 100%;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[class^="btn-"]{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[class^="item-"]{
+   position: relative;
+   z-index: 0;
+
+   width: 100px;
+   height: 100px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 2px 2px;
+}
+.item-1{border-top-left-radius: 25%;}
+.item-2{border-radius: 25% 0;}
+.item-3{border-radius: 0 25%;}
+
+[class^="item-"]::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  animation: GradAnim 5s linear infinite alternate;
+}
+@keyframes GradAnim{
+  0%{box-shadow: 0px 0px 6px 4px #a200ff;}
+  20%{box-shadow: 0px 0px 6px 4px #ff00ff;}
+  40%{box-shadow: 0px 0px 6px 4px #ff00c8;}
+  60%{box-shadow: 0px 0px 6px 4px #ff0040;}
+  80%{box-shadow: 0px 0px 6px 4px #990085;}
+  100%{box-shadow: 0px 0px 6px 4px #ff458c;}
+}
